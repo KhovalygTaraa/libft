@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swquinc <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: swquinc <swquinc@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 20:18:53 by swquinc           #+#    #+#             */
-/*   Updated: 2020/05/28 09:06:25 by swquinc          ###   ########.fr       */
+/*   Updated: 2020/09/06 15:34:13 by swquinc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-static size_t	ft_strlen0(const char *string)
-{
-	size_t		count;
-
-	count = 0;
-	if (!string)
-		return (0);
-	while (string[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
 
 static size_t	beg(char const *s1, char const *set)
 {
@@ -55,7 +40,7 @@ static size_t	end(char const *s1, char const *set)
 	size_t		a;
 
 	i = 0;
-	p = ft_strlen0(s1);
+	p = ft_strlen(s1);
 	a = p;
 	if (!set)
 		return (0);
@@ -89,6 +74,6 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	a = beg(s1, set);
 	b = end(s1, set);
-	c = ft_strlen0(s1);
+	c = ft_strlen(s1);
 	return (ft_substr(s1, (unsigned int)a, (c - (a + b))));
 }
